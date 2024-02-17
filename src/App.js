@@ -21,7 +21,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('your-backend-api-url');
+      const response = await axios.get('/budget');
       const data = response.data;
       setChartData(data); // Assuming data is an array of chart data
       renderChart(data);
