@@ -63,7 +63,51 @@ function App() {
     getBudget();
   }, []);
 
+<<<<<<< HEAD
   
+=======
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('/budget');
+      const data = response.data;
+      setChartData(data); // Assuming data is an array of chart data
+      renderChart(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  const renderChart = (data) => {
+    // Use ChartJS or D3JS to render charts
+    // Example ChartJS rendering
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: data.map((item) => item.label),
+        datasets: [{
+          label: 'My Dataset',
+          data: data.map((item) => item.value),
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Example D3JS rendering
+    // You can use D3JS to create more complex visualizations
+    const svg = d3.select('#mySVG');
+    // D3JS code here
+  };
+>>>>>>> 2368ac4f401ba5202286c5c4b5b231b3dc3b23d6
 
   return (
     <Router>
